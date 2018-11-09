@@ -11,6 +11,8 @@ import HarjoitusTyo.JReviews.Model.Arvosana;
 import HarjoitusTyo.JReviews.Model.ArvosanaRepository;
 import HarjoitusTyo.JReviews.Model.Review;
 import HarjoitusTyo.JReviews.Model.ReviewRepository;
+import HarjoitusTyo.JReviews.Model.User;
+import HarjoitusTyo.JReviews.Model.UserRepository;
 
 @SpringBootApplication
 public class JReviewsApplication {
@@ -21,7 +23,7 @@ public class JReviewsApplication {
 	}
 
 	@Bean
-	public CommandLineRunner reviewDemo(ReviewRepository reviewrepository, ArvosanaRepository arvosanarepository) {
+	public CommandLineRunner reviewDemo(ReviewRepository reviewrepository, ArvosanaRepository arvosanarepository, UserRepository userRepository) {
 		return (args) -> {
 			log.info("Hieman testidataa :) ");
 
@@ -35,6 +37,11 @@ public class JReviewsApplication {
 
 			reviewrepository.save(new Review("Elektroniikka", "2,4 Ghz Wireless Optical Mouse", 3.50, "Kohtalainen", lisatieto1, "30.10.2018", arvosanarepository.findByArvosana("Hyvä").get(0)));
 			reviewrepository.save(new Review("Elintarvike", "Jaffa", 2.5, "Kiitettävä", lisatieto2, "06.10.2018", arvosanarepository.findByArvosana("Hyvä").get(0)));
+			
+			User user1 = new User("user", "$2a$10$SvpCwzfI4kWO4PDrtVGntOFp9fjK9PudHNHe.WT7HN7XB0HRrIYzi", "USER");
+			User user2 = new User("admin", "$2a$10$koYgEIHUhmd1DrUY4KqD3uUHFQyG2MzdklR98Tpuv7XkYYGbRBXJe", "ADMIN");
+			userRepository.save(user1);
+			userRepository.save(user2);
 				
 			log.info("hae kaikki arvostelut");
 			for (Review review : reviewrepository.findAll()) {

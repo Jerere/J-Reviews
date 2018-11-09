@@ -34,6 +34,12 @@ public class JReviewsController {
 	public @ResponseBody Optional<Review> findReviewRest(@PathVariable("id") Long reviewId) {
 		return reviewrepository.findById(reviewId);
 	}
+	
+	// LOG IN 
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
 
 	// SHOW REVIEW LIST
 	@RequestMapping(value = "/reviewlist", method = RequestMethod.GET)
