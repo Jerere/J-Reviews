@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>J-Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="shortcut icon" href="http://www.clker.com/cliparts/z/5/w/w/C/q/white-letter-j-md.png">
+</head>
+<body>
+
+	<div>
+		<h1 style="margin: 30px" >Lisää Arvostelu</h1>
+	
+		<form class="form-row; col-sm-4 my-1" th:object="${review}" th:action="@{save}" action="#" method="post" >
+		
+			<label class="col-sm-4 col-form-label">Tuotetyyppi</label>
+			<input class="col-7" type="text" id="tuoteTyyppi" maxlength="25" th:field="*{tuoteTyyppi}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label">Tuotteen nimi</label>
+			<input class="col-7" type="text" id="tuoteNimi" maxlength="30"  th:field="*{tuoteNimi}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label">Tuotteen hinta</label>
+			<input class="col-7" type="text" th:amount="${tuoteHinta}" maxlength="10"  value= "" id="tuoteHinta"  name="tuoteHinta" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label">Tuotteen laatu</label>
+			<input class="col-7" type="text" id="tuoteLaatu" maxlength="20"  th:field="*{tuoteLaatu}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label" for="arvlist">Arvosana</label>
+			<select id="deplist" th:field="*{arvosana}" class= "form-controll">
+				<option th:each="arvosana:${arvosanat}"
+						th:value="${arvosana.arvosanaid}"
+						th:text="${arvosana.arvosana}">
+				</option>		
+			</select>
+			
+			<input name="arvosteluPaivaus" type="hidden"  id="arvosteluPaivaus" th:attr= "value =${#calendars.format(#calendars.createNow(), 'dd.MM.yyyy ')}" />
+			
+			<div style="display: block; height: 10px;"></div>
+			<label class="col-sm-4 col-form-label">Lisätiedot</label>
+			<textarea  class="col-7" maxlength="100" id="tuoteTiedot" th:field="*{tuoteTiedot}" > </textarea>
+			<div style="display: block; height: 10px;"></div>
+			
+			<div style="height: 10px;"></div>
+			<label class="col-sm-4 col-form-label"></label>
+			<input  type="submit" class="btn btn-success col 7" value="Tallenna"></input>
+			
+		</form>
+	</div>
+</body>

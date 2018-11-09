@@ -1,0 +1,42 @@
+body {
+    background-color: grey;
+    padding: 50px;
+}
+
+.header-style {
+    color: black;
+    font-size: 90px;
+}
+
+.container-style {
+  	display: flex;
+  	
+}
+
+.container-style .box {
+	color: white;	
+  	background-color: black;
+ 	width: 50%;
+ 	padding-top: 20px;
+ 	
+  	text-align: center;
+  	font-size: 30px;
+  	border-radius: 10px;
+  		
+}
+
+.container-style .box2 {
+	color: black;	
+  	background-color: white;
+ 	width: 50%;
+  	margin-left: 20px;
+  	text-align: center;
+  	font-size: 50px;
+  	font-style: italic;
+  	border-radius: 20px;
+}
+
+.sameline-style {
+	display: inline-block;
+	
+}

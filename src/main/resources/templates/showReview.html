@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>J-Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet"  th:href="@{../css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/style.css}">
+    <link rel="shortcut icon" href="http://www.clker.com/cliparts/z/5/w/w/C/q/white-letter-j-md.png">
+</head>
+<body >	
+	
+	
+	<div  class="header-style">
+		<p th:text="${review.get().tuoteNimi}" ></p>
+	</div>	
+		
+	<div class="container-style">
+	
+		<div class ="box"> 
+		
+			<label>Tuotetyyppi: </label>
+			<p class ="sameline-style" th:text="${review.get().tuoteTyyppi}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+	
+			<label  >Hinta: </label>
+			<p class ="sameline-style" th:text="${review.get().tuoteHinta + ' €'}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+		
+			<label >Laatu: </label>
+			<p class ="sameline-style" th:text="${review.get().tuoteLaatu}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+		
+			<label >Arvosana: </label>
+			<p class ="sameline-style" th:text="${review.get().arvosana.arvosana}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+			
+			<label >Arvostelu pvm: </label>
+			<p class ="sameline-style" th:text= "  ${review.get().arvosteluPaivaus} ">  </p>
+			<div style="display: block; height: 10px;"></div>
+			
+		</div>
+	
+		<div class="box2">
+		
+			<label >" </label>
+			<p style="display: inline;" th:text= " ${review.get().tuoteTiedot} "  >  </p>
+			<label style="display: inline;">" </label>
+			
+		</div>	
+	
+	</div>	
+ 						
+</body>
+</html>

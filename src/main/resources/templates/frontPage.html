@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>J-Reviews</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link rel="shortcut icon" href="http://www.clker.com/cliparts/z/5/w/w/C/q/white-letter-j-md.png">
+</head>
+<body>
+
+
+<script>
+    function rowClicked(reviewId) {
+        location.href = "show/" + reviewId;
+    }
+</script>
+	
+	<div style = "padding: 10px">
+	<h1>J-Reviews</h1>
+	
+	<table class="table table-hover">
+		<thead>	
+			<tr>
+				<th> Tuotetyyppi </th>
+				<th> Nimi </th>
+				<th> Hinta </th>
+				<th> Laatu </th>
+				<th> Arvosana </th>
+			
+			</tr>	
+		</thead>
+			<tr th:each="review : ${reviews}" style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${review.id} + '\');'" >
+				<td th:text="${review.tuoteTyyppi}" ></td>
+				<td th:text="${review.tuoteNimi}" ></td>
+				<td th:text="${review.tuoteHinta} + ' ' + € "></td>
+				<td th:text="${review.tuoteLaatu}"></td>
+				<td th:text="${review.arvosana.arvosana}"> </td>
+				<td> <a th:href="@{/delete/{id}(id=${review.id})}" class="btn btn-danger">Poista</a></td>
+				<td> <a th:href="@{/edit/{id}(id=${review.id})}" class="btn btn-primary">Muokkaa</a></td>
+			</tr>
+	</table>
+	</div>
+		<div class="col-md" style="padding: 10px">
+		<a href="/add" class=" btn btn-success">Lisää arvostelu</a>
+	</div>
+	
+</body>
