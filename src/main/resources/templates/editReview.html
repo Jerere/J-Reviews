@@ -4,32 +4,33 @@
     <title>J-Reviews</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../css/style.css}">
     <link rel="shortcut icon" href="http://www.clker.com/cliparts/z/5/w/w/C/q/white-letter-j-md.png">
 </head>
 <body>
 
-	<div>
-		<h1 style="margin: 30px">Muokkaa Arvostelua</h1>
-		<form class="form-row; col-sm-4 my-1" th:object="${review}" th:action="@{../save}" action="#" method="post">
+	<div class = "add-edit-style-div">
+		<h1 class = "header-style-3">Muokkaa Arvostelua</h1>
+		<form class="form-row;	" th:object="${review}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" th:field="*{id}" class="form-control"/>
 			
-			<label class="col-sm-4 col-form-label">Tuotetyyppi</label>
+			<label style = "color: white" class="col-sm-4 col-form-label">Tuotetyyppi</label>
 			<input class="col-7" type="text" id="tuoteTyyppi" th:field="*{tuoteTyyppi}" />
-			<div style="display: block; height: 10px;"></div>
+			<div style="display: block; height: 15px;"></div>
 			
-			<label class="col-sm-4 col-form-label">Tuotteen nimi</label>
+			<label style = "color: white" class="col-sm-4 col-form-label">Tuotteen nimi</label>
 			<input class="col-7" type="text" id="tuoteNimi" th:field="*{tuoteNimi}" />
-			<div style="display: block; height: 10px;"></div>
+			<div style="display: block; height: 15px;"></div>
 			
-			<label class="col-sm-4 col-form-label">Tuotteen hinta</label>
+			<label style = "color: white" class="col-sm-4 col-form-label">Tuotteen hinta</label>
 			<input class="col-7" type="text" id="tuoteHinta" th:field="*{tuoteHinta}" />
-			<div style="display: block; height: 10px;"></div>
+			<div style="display: block; height: 15px;"></div>
 			
-			<label class="col-sm-4 col-form-label">Tuotteen laatu</label>
+			<label style = "color: white" class="col-sm-4 col-form-label">Tuotteen laatu</label>
 			<input class="col-7" type="text" id="tuoteLaatu" th:field="*{tuoteLaatu}" />
-			<div style="display: block; height: 10px;"></div>
+			<div style="display: block; height: 15px;"></div>
 			
-			<label class="col-sm-4 col-form-label" for="arvlist">Arvosana</label>
+			<label style = "color: white" class="col-sm-4 col-form-label" for="arvlist">Arvosana</label>
 			<select id="deplist" th:field="*{arvosana}" class= "form-controll">
 				<option th:each="arvosana:${arvosanat}"
 						th:value="${arvosana.arvosanaid}"
@@ -39,14 +40,14 @@
 			
 			<input name="arvosteluPaivaus" type="hidden"  id="arvosteluPaivaus" th:attr= "value =${#calendars.format(#calendars.createNow(), 'dd.MM.yyyy ')}" />
 			
-			<div style="display: block; height: 10px;"></div>
-			<label class="col-sm-4 col-form-label">Lisätiedot</label>
-			<textarea  class="col-7" type="text" id="tuoteTiedot" th:field="*{tuoteTiedot}" > </textarea>
-			<div style="display: block; height: 10px;"></div>
+			<div style="display: block; height: 15px;"></div>
+			<label style = "color: white" class="col-sm-4 col-form-label">Lisätiedot</label>
+			<textarea rows="4" cols="25" style = "resize: none;" class="col-7" id="tuoteTiedot" th:field="*{tuoteTiedot}" > </textarea>
+			<div style="display: block; height: 15px;"></div>
 			
-			<div style="height: 10px;"></div>
 			<label class="col-sm-4 col-form-label"></label>
-			<input  type="submit" class="btn btn-success col 7" value="Tallenna"></input>
+			<input  type="submit" class="btn-lg btn-success col 7" value="Tallenna"></input>
+			<div style="display: block; height: 15px;"></div>
 			
 		</form>
 	</div>

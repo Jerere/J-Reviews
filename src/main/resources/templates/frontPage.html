@@ -4,6 +4,7 @@
 <title>J-Reviews</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{../css/style.css}">
 <link rel="shortcut icon" href="http://www.clker.com/cliparts/z/5/w/w/C/q/white-letter-j-md.png">
 </head>
 <body>
@@ -16,17 +17,21 @@
 </script>
 	
 	<div style = "padding: 10px">
-		<div> 
-			<h1>J-Reviews</h1>
-			<h2 th:inline="text"> Hello there [[${#httpServletRequest.remoteUser}]]</h2>
-			
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" value="Sign out" class="btn btn-warning" />
-			</form>
-			
+	
+		<div class = "user-name-logout">
+			<p class = "sameline-style" style="margin-right: 10px; " th:inline="text"> [[${#httpServletRequest.remoteUser}]]</p>
+				<form class = "sameline-style"  th:action="@{/logout}" method="post">
+					<input   type="submit" value="Sign out" class="btn-sm btn-warning" />
+				</form>
 		</div>
+	
+	<div> 
+		<h1 class = "j-reviews-header">J-Reviews</h1>
+	</div>
+		
+	<div class = "front-table-div">
 	<table class="table table-hover">
-		<thead>	
+		<thead style = "color: yellow">	
 			<tr>
 				<th> Tuotetyyppi </th>
 				<th> Nimi </th>
@@ -42,13 +47,15 @@
 				<td th:text="${review.tuoteHinta} + ' ' + € "></td>
 				<td th:text="${review.tuoteLaatu}"></td>
 				<td th:text="${review.arvosana.arvosana}"> </td>
-				<td> <a th:href="@{/delete/{id}(id=${review.id})}" class="btn btn-danger">Poista</a></td>
-				<td> <a th:href="@{/edit/{id}(id=${review.id})}" class="btn btn-primary">Muokkaa</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"> <a th:href="@{/delete/{id}(id=${review.id})}" class="btn btn-danger">Poista</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"> <a th:href="@{/edit/{id}(id=${review.id})}" class="btn btn-primary">Muokkaa</a></td>
 			</tr>
 	</table>
 	</div>
+	
+	</div>
 		<div class="col-md" style="padding: 10px">
-		<a href="/add" class=" btn btn-success">Lisää arvostelu</a>
+		<a style = "text-decoration: none;" href="/add" class=" btn-lg btn-success">Lisää arvostelu</a>
 	</div>
 	
 </body>

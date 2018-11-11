@@ -19,23 +19,23 @@
 		<div class ="box"> 
 		
 			<label>Tuotetyyppi: </label>
-			<p class ="sameline-style" th:text="${review.get().tuoteTyyppi}" >  </p>
+			<p class ="sameline-style" style = "color: yellow;" th:text="${review.get().tuoteTyyppi}" >  </p>
 			<div style="display: block; height: 10px;"></div>
 	
 			<label  >Hinta: </label>
-			<p class ="sameline-style" th:text="${review.get().tuoteHinta + ' €'}" >  </p>
+			<p class ="sameline-style" style = "color: yellow;" th:text="${review.get().tuoteHinta + ' €'}" >  </p>
 			<div style="display: block; height: 10px;"></div>
 		
 			<label >Laatu: </label>
-			<p class ="sameline-style" th:text="${review.get().tuoteLaatu}" >  </p>
+			<p class ="sameline-style" style = "color: yellow;" th:text="${review.get().tuoteLaatu}" >  </p>
 			<div style="display: block; height: 10px;"></div>
 		
 			<label >Arvosana: </label>
-			<p class ="sameline-style" th:text="${review.get().arvosana.arvosana}" >  </p>
+			<p class ="sameline-style" style = "color: yellow;" th:text="${review.get().arvosana.arvosana}" >  </p>
 			<div style="display: block; height: 10px;"></div>
 			
 			<label >Arvostelu pvm: </label>
-			<p class ="sameline-style" th:text= "  ${review.get().arvosteluPaivaus} ">  </p>
+			<p class ="sameline-style" style = "color: yellow;" th:text= "  ${review.get().arvosteluPaivaus} ">  </p>
 			<div style="display: block; height: 10px;"></div>
 			
 		</div>
