@@ -1,5 +1,7 @@
 body {
-	background-image: url("https://hdqwalls.com/download/blur-background-6z-1920x1080.jpg");
+	background-image: url("asd.jpg");
+	background-size: auto;
+
 	
 }
 
@@ -8,6 +10,7 @@ body {
 .j-reviews-header {
 	color: white;
 	font-size: 80px;
+	font-weight: bold;
 	display: inline-block;
 }
 
@@ -58,6 +61,12 @@ body {
 }
 
 /* LOGIN STYLE / SIGNUP STYLE */
+
+.header-style-login {
+	color: black;
+	font-size: 60px;
+	font-weight: bold;
+}
 
 .login-style {
 	margin: auto;

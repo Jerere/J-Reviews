@@ -33,7 +33,7 @@ public class JReviewsApplication {
 			arvosanarepository.save(new Arvosana("5/5"));
 			
 			String lisatieto1 = "Hyvä langaton hiiri hintaansa nähden. Tilattu Kiinasta Ebayn kautta. Vuoden aikana vaihtanut paristot kerran.";
-			String lisatieto2 = "Hyvän makuinen ja luotettava virvoke. Hinta hieman kallis omaan makuuni mutta suosittelen siitä huolimatta";
+			String lisatieto2 = "Hyvän makuinen ja luotettava virvoke. Hinta hieman kallis omaan makuuni, mutta suosittelen siitä huolimatta";
 
 			reviewrepository.save(new Review("Elektroniikka", "2,4 Ghz Wireless Optical Mouse", 3.50, "Kohtalainen", lisatieto1, "30.10.2018", arvosanarepository.findByArvosana("Hyvä").get(0)));
 			reviewrepository.save(new Review("Elintarvike", "Jaffa", 2.5, "Kiitettävä", lisatieto2, "06.10.2018", arvosanarepository.findByArvosana("Hyvä").get(0)));
